@@ -140,7 +140,7 @@ function shuffleArray(array) {
     }
 }
 
-// Sprawdzanie czy puzzle są ułożone
+// Funkcja sprawdzająca czy puzzle są ułożone
 function checkIfPuzzleComplete() {
     const tiles = document.querySelectorAll('#dropArea .drop-target canvas');
     const isComplete = tiles.length === 16 && Array.from(tiles).every(tile => {
@@ -153,18 +153,12 @@ function checkIfPuzzleComplete() {
 
         // Wyświetlenie powiadomienia systemowego, jeśli jest dostępne
         if (Notification.permission === "granted") {
-            new Notification("Gratulacje!", {
-                body: "Ułożyłeś puzzle poprawnie!",
-                icon: "https://example.com/icon.png" // Opcjonalnie: dodaj ikonę powiadomienia
-            });
+            showNotification();
         } else if (Notification.permission !== "denied") {
             // Poproś o zgodę na wyświetlanie powiadomień, jeśli jeszcze nie zapytano
             Notification.requestPermission().then(permission => {
                 if (permission === "granted") {
-                    new Notification("Gratulacje!", {
-                        body: "Ułożyłeś puzzle poprawnie!",
-                        icon: "https://example.com/icon.png" // Opcjonalnie: dodaj ikonę powiadomienia
-                    });
+                    showNotification();
                 }
             });
         }
@@ -172,4 +166,15 @@ function checkIfPuzzleComplete() {
         // Alternatywnie: wyświetlenie alertu jako zapasowe powiadomienie
         alert("Gratulacje! Ułożyłeś puzzle!");
     }
+}
+
+// Funkcja do wyświetlenia powiadomienia
+function showNotification() {
+    const notification = new Notification("Gratulacje!", {
+        body: "Ułożyłeś puzzle poprawnie!",
+        icon: 'path_to_your_icon.png', // opcjonalnie: ścieżka do ikony dla powiadomienia
+    });
+    notification.onclick = () => {
+        window.focus();
+    };
 }
