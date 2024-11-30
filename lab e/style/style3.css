@@ -1,0 +1,193 @@
+/* Styl dla całej strony */
+body {
+    margin: 0;
+    font-family: 'Afacad Flux', serif;
+    background-color: #e74c3c;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333;
+    line-height: 1.6;
+}
+
+.header-main {
+    background-color: rgba(0, 0, 0, 0); 
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 2.5em;
+    animation: slideDown 1s ease-in-out; 
+}
+
+h1 {
+    color: white;
+    text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.7); /* Cień: 2px w prawo, 2px w dół, rozmycie 5px, kolor czarny z przezroczystością 70% */
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Transparentny footer z animacją fade-in */
+.footer {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 1em;
+    animation: fadeIn 2s ease-in-out;
+}
+
+body > *:not(header):not(footer) {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dwie kolumny */
+    grid-template-rows: auto auto auto; /* Trzy rzędy */
+    grid-gap: 20px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-article {
+    background-color: rgba(0, 0, 0, 0.151); 
+    padding: 2%;
+    border-radius: 1%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 2%;
+    flex-direction: row-reverse; /* Tekst po prawej stronie, obrazek po lewej */
+    backdrop-filter: blur(5px); /* Efekt rozmycia tła */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-article:hover {
+    transform: translateY(-10px); /* Lekkie podniesienie przy najechaniu */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Większy cień przy najechaniu */
+}
+
+/* Obrazek po lewej stronie */
+.article-image {
+    width: 150px;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.article-image:hover {
+    transform: scale(1.05); /* Powiększenie obrazka przy najechaniu */
+}
+
+
+/* Zmniejszone obrazki po lewej stronie */
+.article-image {
+    width: 30%; /* Zmniejszona szerokość obrazów */
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.article-image:hover {
+    transform: scale(1.05); /* Powiększenie zdjęcia */
+}
+
+/* Piąty element na środku poniżej */
+.section-article:nth-child(5) {
+    grid-column: 1 / span 2; /* Obejmuje obie kolumny */
+    grid-row: 3; /* Znajduje się w trzecim rzędzie */
+    width: 60%; /* Zajmuje 60% szerokości */
+    margin-left: auto;
+    margin-right: auto; /* Wyśrodkowany */
+}
+
+/* Responsywność: Mniejsze ekrany */
+@media (max-width: 768px) {
+    body > *:not(header):not(footer) {
+        grid-template-columns: 1fr; /* Jedna kolumna na mniejszych ekranach */
+    }
+
+    /* Zmiana szerokości ostatniego elementu */
+    .section-article:nth-child(5) {
+        width: 80%; /* Większa szerokość na mniejszych ekranach */
+    }
+
+    .header-main {
+        font-size: 2em;
+    }
+
+    .footer {
+        font-size: 0.9em;
+    }
+
+    /* Układ kolumnowy dla obrazów i tekstu */
+    .section-article {
+        flex-direction: column;
+        align-items: center; /* Wyrównanie do środka */
+    }
+
+    .article-image {
+        width: 100%; /* Pełna szerokość na małych ekranach */
+    }
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
+    color: white;
+    padding: 17px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 0;
+    background-color: rgb(0, 0, 0);
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all 0.5s ease;
+  }
+  
+  button:hover {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+  }
+  
+  button:active {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+  }
+  
+  ul li {
+    background: linear-gradient(to right, #f39c12, #e74c3c);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  #style-links, .button-container {
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie w poziomie */
+    align-items: center; /* Wyśrodkowanie w pionie */
+    gap: 10px; /* Odstępy między przyciskami */
+    margin-top: 20px; /* Dodatkowy odstęp od góry */
+}

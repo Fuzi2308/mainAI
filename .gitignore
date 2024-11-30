@@ -1,0 +1,29 @@
+# Node.js
+node_modules/    # Folder z paczkami Node.js
+npm-debug.log*   # Pliki debugowania npm
+yarn-debug.log*  # Pliki debugowania Yarn
+yarn-error.log*  # Pliki błędów Yarn
+
+# TypeScript
+*.tsbuildinfo    # Pliki cache TypeScript
+
+# Webpack i Laravel Mix
+public/          # Jeśli korzystasz z Laravel Mix, ignoruj folder public
+district/        # Pliki wynikowe generowane przez Webpack (zamiast `dist`)
+*.map            # Mapy źródłowe generowane przez Webpack (opcjonalnie)
+
+# Systemowe
+.DS_Store        # Plik macOS
+Thumbs.db        # Plik Windows
+*.log            # Ogólne logi
+*.bak            # Pliki kopii zapasowych
+
+# Konfiguracje IDE
+.idea/           # Konfiguracja IntelliJ / WebStorm / PHPStorm
+.vscode/         # Konfiguracja VSCode
+*.iml            # Pliki projektów IntelliJ
+
+# Pliki JSON i konfiguracja
+package-lock.json  # Jeśli repozytorium nie wymaga tego pliku
+tsconfig.json      # Ignoruj, jeśli konfiguracja TypeScript nie jest potrzebna
+webpack.mix.js     # Plik Mix, jeśli nie chcesz udostępniać konfiguracji
